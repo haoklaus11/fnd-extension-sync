@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": "user_001",
+      "name": "Pet Alpha",
+      "email": "alpha@example.com",
+      "level": 5,
+      "xp": 250,
+      "totalTribute": 1250,
+      "rank": "Devoted",
+      "joinDate": "2024-01-15T00:00:00Z",
+      "lastActive": "2025-07-14T00:00:00Z",
+      "completedTasks": 15,
+      "activeTasks": 2,
+      "stats": {
+        "dailyStreak": 7,
+        "weeklyGoals": 3,
+        "monthlyTribute": 400,
+        "averageTaskTime": 45
+      },
+      "preferences": {
+        "notifications": true,
+        "difficulty": "medium",
+        "categories": ["daily", "weekly"]
+      }
+    },
+    {
+      "id": "user_002",
+      "name": "Sub Beta",
+      "email": "beta@example.com",
+      "level": 3,
+      "xp": 150,
+      "totalTribute": 750,
+      "rank": "Apprentice",
+      "joinDate": "2024-03-10T00:00:00Z",
+      "lastActive": "2025-07-13T00:00:00Z",
+      "completedTasks": 8,
+      "activeTasks": 1,
+      "stats": {
+        "dailyStreak": 3,
+        "weeklyGoals": 1,
+        "monthlyTribute": 200,
+        "averageTaskTime": 60
+      },
+      "preferences": {
+        "notifications": true,
+        "difficulty": "easy",
+        "categories": ["daily"]
+      }
+    },
+    {
+      "id": "user_003",
+      "name": "Worm Gamma",
+      "email": "gamma@example.com",
+      "level": 7,
+      "xp": 420,
+      "totalTribute": 2100,
+      "rank": "Elite",
+      "joinDate": "2023-11-20T00:00:00Z",
+      "lastActive": "2025-07-14T00:00:00Z",
+      "completedTasks": 25,
+      "activeTasks": 3,
+      "stats": {
+        "dailyStreak": 14,
+        "weeklyGoals": 5,
+        "monthlyTribute": 600,
+        "averageTaskTime": 30
+      },
+      "preferences": {
+        "notifications": true,
+        "difficulty": "hard",
+        "categories": ["daily", "weekly", "special"]
+      }
+    }
+  ],
+  "metadata": {
+    "totalUsers": 3,
+    "activeUsers": 3,
+    "newUsersThisMonth": 1,
+    "totalTribute": 4100,
+    "averageLevel": 5,
+    "lastSync": "2025-07-14T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

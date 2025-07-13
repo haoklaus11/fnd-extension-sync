@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "lastUpdate": "2025-07-14T00:00:00Z",
+  "extension": {
+    "name": "FinDom Elite Tracker",
+    "version": "1.0.0",
+    "activationCode": "GODDESS-KU00WKU",
+    "syncInterval": 1800000,
+    "features": {
+      "taskSync": true,
+      "profileSync": true,
+      "tributeTracking": true,
+      "realTimeUpdates": true
+    }
+  },
+  "api": {
+    "baseUrl": "https://api.github.com/repos/haoklaus11/fnd-extension-sync",
+    "endpoints": {
+      "tasks": "/contents/data/tasks.json",
+      "users": "/contents/data/users.json",
+      "tribute": "/contents/data/tribute-history.json",
+      "config": "/contents/data/config.json"
+    }
+  },
+  "auth": {
+    "method": "github_token",
+    "scopes": ["repo", "contents:read", "contents:write"]
+  }
+}

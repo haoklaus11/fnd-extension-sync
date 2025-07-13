@@ -1,0 +1,61 @@
+{
+  "repository": {
+    "name": "fnd-extension-sync",
+    "owner": "haoklaus11",
+    "url": "https://github.com/haoklaus11/fnd-extension-sync",
+    "branch": "main"
+  },
+  "sync": {
+    "enabled": true,
+    "interval": "5m",
+    "lastSync": "2024-01-20T06:00:00Z",
+    "autoCommit": true,
+    "commitMessage": "Auto-sync from FinDom Elite Tracker"
+  },
+  "webhook": {
+    "enabled": true,
+    "url": "https://your-server.com/webhook/github",
+    "secret": "your-webhook-secret-here",
+    "events": ["push", "pull_request"]
+  },
+  "api": {
+    "baseUrl": "https://api.github.com",
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "retryDelay": 1000
+  },
+  "files": {
+    "tasks": "github/tasks.json",
+    "config": "github/config.json",
+    "users": "github/users.json",
+    "tributes": "github/tributes.json"
+  },
+  "permissions": {
+    "read": true,
+    "write": true,
+    "admin": false
+  },
+  "security": {
+    "tokenEncryption": true,
+    "validateSignatures": true,
+    "auditLog": true
+  },
+  "features": {
+    "realTimeSync": true,
+    "backupEnabled": true,
+    "versionControl": true,
+    "conflictResolution": "server-wins"
+  },
+  "limits": {
+    "maxTasksPerUser": 100,
+    "maxFileSize": "1MB",
+    "apiRateLimit": 5000
+  },
+  "notifications": {
+    "syncSuccess": true,
+    "syncErrors": true,
+    "taskUpdates": true
+  },
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-20T06:00:00Z"
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinDom Elite Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="header">
+            <h2>Welcome, Pet 🖤</h2>
+            <div class="action-buttons">
+                <button id="syncEmpire" class="sync-btn">Sync Empire</button>
+                <button id="adminThrone" class="admin-btn">Admin Throne</button>
+            </div>
+        </div>
+        
+        <div id="taskList" class="task-container">
+            <div class="loading">Loading divine tasks...</div>
+        </div>
+        
+        <div class="footer">
+            <div class="stats">
+                <span id="taskCount">0 tasks</span>
+                <span id="syncStatus">Last sync: Never</span>
+            </div>
+            <p class="status" id="statusText">Ready to serve</p>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

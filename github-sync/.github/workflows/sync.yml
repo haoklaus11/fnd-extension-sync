@@ -1,0 +1,72 @@
+name: Sync Extension Data
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+
+jobs:
+  sync-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: |
+        npm install
+        
+    - name: Validate JSON files
+      run: |
+        node -e "JSON.parse(require('fs').readFileSync('data/config.json', 'utf8'))"
+        node -e "JSON.parse(require('fs').readFileSync('data/tasks.json', 'utf8'))"
+        node -e "JSON.parse(require('fs').readFileSync('data/users.json', 'utf8'))"
+        node -e "JSON.parse(require('fs').readFileSync('data/tribute-history.json', 'utf8'))"
+        
+    - name: Update timestamps
+      run: |
+        node -e "
+        const fs = require('fs');
+        const now = new Date().toISOString();
+        
+        // Update config
+        const config = JSON.parse(fs.readFileSync('data/config.json', 'utf8'));
+        config.lastUpdate = now;
+        fs.writeFileSync('data/config.json', JSON.stringify(config, null, 2));
+        
+        // Update tasks metadata
+        const tasks = JSON.parse(fs.readFileSync('data/tasks.json', 'utf8'));
+        tasks.metadata.lastSync = now;
+        fs.writeFileSync('data/tasks.json', JSON.stringify(tasks, null, 2));
+        
+        // Update users metadata
+        const users = JSON.parse(fs.readFileSync('data/users.json', 'utf8'));
+        users.metadata.lastSync = now;
+        fs.writeFileSync('data/users.json', JSON.stringify(users, null, 2));
+        
+        // Update tribute history metadata
+        const tribute = JSON.parse(fs.readFileSync('data/tribute-history.json', 'utf8'));
+        tribute.metadata.lastSync = now;
+        fs.writeFileSync('data/tribute-history.json', JSON.stringify(tribute, null, 2));
+        "
+        
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/
+        git diff --staged --quiet || git commit -m "Auto-update sync timestamps"
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main

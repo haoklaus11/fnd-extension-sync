@@ -1,0 +1,20 @@
+{
+  "name": "findom-elite-tracker",
+  "version": "1.0.0",
+  "description": "A Chrome extension for tracking findom activities and managing tasks.",
+  "main": "src/background/background.js",
+  "scripts": {
+    "build": "echo 'Build script not defined'",
+    "test": "echo 'Test script not defined'"
+  },
+  "keywords": [
+    "chrome",
+    "extension",
+    "findom",
+    "tracker"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

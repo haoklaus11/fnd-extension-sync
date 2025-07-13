@@ -1,0 +1,38 @@
+{
+  "name": "findom-extension-sync",
+  "version": "1.0.0",
+  "description": "Sync backend for FinDom Elite Tracker Chrome Extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/validate-json.js",
+    "validate": "node scripts/validate-data.js",
+    "update-timestamps": "node scripts/update-timestamps.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haoklaus11/fnd-extension-sync.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "sync",
+    "github-api",
+    "findom",
+    "tracker"
+  ],
+  "author": "haoklaus11",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haoklaus11/fnd-extension-sync/issues"
+  },
+  "homepage": "https://github.com/haoklaus11/fnd-extension-sync#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "rate-limiter-flexible": "^2.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

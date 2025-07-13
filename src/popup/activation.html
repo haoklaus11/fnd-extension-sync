@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="popup.css" />
+  <title>FinDom Elite Tracker - Activation</title>
+</head>
+<body class="activation-page">
+  <div class="activation-container">
+    <div class="header">
+      <h1>Enter Activation Code</h1>
+      <p class="subtitle">Prove your devotion to access the elite experience</p>
+    </div>
+    
+    <div class="activation-form">
+      <input 
+        type="text" 
+        id="codeInput" 
+        placeholder="Enter your divine code"
+        maxlength="50"
+        autocomplete="off"
+      >
+      <button id="activateBtn" class="activate-btn">Activate</button>
+    </div>
+    
+    <div class="activation-status" id="statusMessage" style="display: none;"></div>
+    
+    <div class="footer">
+      <p class="disclaimer">Access granted only to worthy subjects</p>
+    </div>
+  </div>
+
+  <script src="activation.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "FinDom Elite Tracker",
+  "version": "1.0.0",
+  "description": "A Chrome extension to track and manage findom activities with GitHub sync",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://api.github.com/*",
+    "https://raw.githubusercontent.com/*"
+  ],
+  "background": {
+    "service_worker": "background-task-sync.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "FinDom Elite Tracker",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup-activation.html",
+        "admin/*",
+        "icons/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Morning Tribute",
+      "description": "Start your day by showing proper respect",
+      "tribute": "$50",
+      "xp": 20,
+      "difficulty": "easy",
+      "status": "ACTIVE",
+      "deadline": "2025-07-15T08:00:00Z",
+      "createdAt": "2025-07-14T00:00:00Z",
+      "updatedAt": "2025-07-14T00:00:00Z",
+      "assignedTo": "all",
+      "category": "daily",
+      "tags": ["tribute", "morning", "respect"]
+    },
+    {
+      "id": 2,
+      "title": "Weekly Worship",
+      "description": "Demonstrate your devotion with a substantial offering",
+      "tribute": "$200",
+      "xp": 100,
+      "difficulty": "hard",
+      "status": "ACTIVE",
+      "deadline": "2025-07-21T23:59:59Z",
+      "createdAt": "2025-07-14T00:00:00Z",
+      "updatedAt": "2025-07-14T00:00:00Z",
+      "assignedTo": "all",
+      "category": "weekly",
+      "tags": ["tribute", "worship", "devotion"]
+    },
+    {
+      "id": 3,
+      "title": "Special Assignment",
+      "description": "A unique task for dedicated servants",
+      "tribute": "$100",
+      "xp": 50,
+      "difficulty": "medium",
+      "status": "ACTIVE",
+      "deadline": "2025-07-16T18:00:00Z",
+      "createdAt": "2025-07-14T00:00:00Z",
+      "updatedAt": "2025-07-14T00:00:00Z",
+      "assignedTo": "elite",
+      "category": "special",
+      "tags": ["assignment", "dedication", "elite"]
+    }
+  ],
+  "metadata": {
+    "totalTasks": 3,
+    "activeTasks": 3,
+    "completedTasks": 0,
+    "lastSync": "2025-07-14T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

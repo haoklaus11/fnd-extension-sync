@@ -1,0 +1,91 @@
+{
+  "transactions": [
+    {
+      "id": "txn_001",
+      "userId": "user_001",
+      "userName": "Pet Alpha",
+      "taskId": 1,
+      "taskTitle": "Morning Tribute",
+      "amount": 50,
+      "currency": "USD",
+      "date": "2025-07-13T08:30:00Z",
+      "status": "completed",
+      "method": "extension",
+      "notes": "Prompt morning tribute"
+    },
+    {
+      "id": "txn_002",
+      "userId": "user_003",
+      "userName": "Worm Gamma",
+      "taskId": 2,
+      "taskTitle": "Weekly Worship",
+      "amount": 200,
+      "currency": "USD",
+      "date": "2025-07-12T19:45:00Z",
+      "status": "completed",
+      "method": "extension",
+      "notes": "Exceptional devotion displayed"
+    },
+    {
+      "id": "txn_003",
+      "userId": "user_002",
+      "userName": "Sub Beta",
+      "taskId": 1,
+      "taskTitle": "Morning Tribute",
+      "amount": 50,
+      "currency": "USD",
+      "date": "2025-07-12T09:15:00Z",
+      "status": "completed",
+      "method": "extension",
+      "notes": "Consistent daily tribute"
+    },
+    {
+      "id": "txn_004",
+      "userId": "user_001",
+      "userName": "Pet Alpha",
+      "taskId": 3,
+      "taskTitle": "Special Assignment",
+      "amount": 100,
+      "currency": "USD",
+      "date": "2025-07-11T16:20:00Z",
+      "status": "completed",
+      "method": "extension",
+      "notes": "Completed special task with excellence"
+    },
+    {
+      "id": "txn_005",
+      "userId": "user_003",
+      "userName": "Worm Gamma",
+      "taskId": 1,
+      "taskTitle": "Morning Tribute",
+      "amount": 50,
+      "currency": "USD",
+      "date": "2025-07-11T07:45:00Z",
+      "status": "completed",
+      "method": "extension",
+      "notes": "Early morning dedication"
+    }
+  ],
+  "summary": {
+    "totalTransactions": 5,
+    "totalAmount": 450,
+    "thisMonth": {
+      "transactions": 5,
+      "amount": 450
+    },
+    "thisWeek": {
+      "transactions": 3,
+      "amount": 300
+    },
+    "topContributor": {
+      "userId": "user_003",
+      "userName": "Worm Gamma",
+      "amount": 250
+    }
+  },
+  "metadata": {
+    "lastSync": "2025-07-14T00:00:00Z",
+    "version": "1.0.0",
+    "currency": "USD"
+  }
+}

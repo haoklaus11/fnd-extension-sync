@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinDom Elite Tracker - Admin Throne</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-content">
+                <h1>👑 Admin Throne</h1>
+                <p class="subtitle">Command your digital empire</p>
+            </div>
+            <div class="header-actions">
+                <button id="syncBtn" class="sync-btn">
+                    <span class="sync-icon">🔄</span>
+                    Sync Empire
+                </button>
+                <button id="backToPopup" class="back-btn">
+                    <span class="back-icon">↩️</span>
+                    Back to Dashboard
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="admin-nav">
+            <button class="nav-tab active" data-tab="tasks">Task Manager</button>
+            <button class="nav-tab" data-tab="tribute">Tribute History</button>
+            <button class="nav-tab" data-tab="profiles">Sub Profiles</button>
+            <button class="nav-tab" data-tab="analytics">Analytics</button>
+        </nav>
+
+        <!-- Task Manager Tab -->
+        <div id="tasks-tab" class="tab-content active">
+            <div class="section-header">
+                <h2>Task Management</h2>
+                <button id="addTaskBtn" class="add-btn">+ Add New Task</button>
+            </div>
+            
+            <div class="task-filters">
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="ACTIVE">Active</option>
+                    <option value="COMPLETED">Completed</option>
+                    <option value="OVERDUE">Overdue</option>
+                </select>
+                <select id="difficultyFilter">
+                    <option value="all">All Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <input type="text" id="searchTasks" placeholder="Search tasks...">
+            </div>
+
+            <div id="tasksList" class="tasks-grid">
+                <!-- Tasks will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Tribute History Tab -->
+        <div id="tribute-tab" class="tab-content">
+            <div class="section-header">
+                <h2>Tribute History</h2>
+                <div class="tribute-summary">
+                    <div class="summary-card">
+                        <h3>Total Tribute</h3>
+                        <span id="totalTribute" class="tribute-amount">$0</span>
+                    </div>
+                    <div class="summary-card">
+                        <h3>This Month</h3>
+                        <span id="monthlyTribute" class="tribute-amount">$0</span>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Active Subs</h3>
+                        <span id="activeSubs" class="sub-count">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tributeHistory" class="tribute-list">
+                <!-- Tribute history will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Sub Profiles Tab -->
+        <div id="profiles-tab" class="tab-content">
+            <div class="section-header">
+                <h2>Sub Profile Management</h2>
+                <button id="addSubBtn" class="add-btn">+ Add New Sub</button>
+            </div>
+            
+            <div id="subProfiles" class="profiles-grid">
+                <!-- Sub profiles will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div id="analytics-tab" class="tab-content">
+            <div class="section-header">
+                <h2>Empire Analytics</h2>
+            </div>
+            
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <h3>Task Completion Rate</h3>
+                    <div class="metric">
+                        <span id="completionRate" class="percentage">0%</span>
+                        <div class="progress-bar">
+                            <div id="completionProgress" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analytics-card">
+                    <h3>Average Tribute</h3>
+                    <div class="metric">
+                        <span id="avgTribute" class="amount">$0</span>
+                        <span class="trend up">↗️ +12%</span>
+                    </div>
+                </div>
+                
+                <div class="analytics-card">
+                    <h3>Active Tasks</h3>
+                    <div class="metric">
+                        <span id="activeTasks" class="count">0</span>
+                        <span class="description">Currently assigned</span>
+                    </div>
+                </div>
+                
+                <div class="analytics-card">
+                    <h3>Empire Growth</h3>
+                    <div class="metric">
+                        <span id="empireGrowth" class="percentage">0%</span>
+                        <span class="trend up">↗️ Growing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Task</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="taskTitle">Task Title</label>
+                        <input type="text" id="taskTitle" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskDescription">Description</label>
+                        <textarea id="taskDescription" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taskTribute">Tribute Amount</label>
+                            <input type="text" id="taskTribute" placeholder="$50" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="taskXP">XP Reward</label>
+                            <input type="number" id="taskXP" min="1" max="1000" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taskDifficulty">Difficulty</label>
+                            <select id="taskDifficulty" required>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="taskDeadline">Deadline</label>
+                            <input type="datetime-local" id="taskDeadline" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn">Cancel</button>
+                        <button type="submit" class="save-btn">Save Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub Profile Modal -->
+    <div id="subModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="subModalTitle">Add New Sub</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="subForm">
+                    <div class="form-group">
+                        <label for="subName">Sub Name</label>
+                        <input type="text" id="subName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subEmail">Email</label>
+                        <input type="email" id="subEmail" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="subLevel">Level</label>
+                            <input type="number" id="subLevel" min="1" max="100" value="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subRank">Rank</label>
+                            <select id="subRank" required>
+                                <option value="Novice">Novice</option>
+                                <option value="Apprentice">Apprentice</option>
+                                <option value="Devoted">Devoted</option>
+                                <option value="Elite">Elite</option>
+                                <option value="Champion">Champion</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn">Cancel</button>
+                        <button type="submit" class="save-btn">Save Sub</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Messages -->
+    <div id="statusMessage" class="status-message"></div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Morning Tribute",
+      "description": "Send your morning tribute to prove your devotion.",
+      "tribute": "$50",
+      "xp": 100,
+      "difficulty": "easy",
+      "status": "PENDING",
+      "deadline": "2024-01-21T09:00:00Z",
+      "createdAt": "2024-01-20T06:00:00Z",
+      "updatedAt": "2024-01-20T06:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Worship Session",
+      "description": "Complete a 30-minute worship session and document it.",
+      "tribute": "$100",
+      "xp": 200,
+      "difficulty": "medium",
+      "status": "PENDING",
+      "deadline": "2024-01-23T20:00:00Z",
+      "createdAt": "2024-01-20T06:00:00Z",
+      "updatedAt": "2024-01-20T06:00:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Weekend Servitude",
+      "description": "Complete all weekend tasks and submit proof of completion.",
+      "tribute": "$250",
+      "xp": 500,
+      "difficulty": "hard",
+      "status": "PENDING",
+      "deadline": "2024-01-27T23:59:59Z",
+      "createdAt": "2024-01-20T06:00:00Z",
+      "updatedAt": "2024-01-20T06:00:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Daily Affirmations",
+      "description": "Recite daily affirmations and send voice recording.",
+      "tribute": "$25",
+      "xp": 50,
+      "difficulty": "easy",
+      "status": "COMPLETED",
+      "deadline": "2024-01-21T12:00:00Z",
+      "createdAt": "2024-01-19T06:00:00Z",
+      "updatedAt": "2024-01-20T08:30:00Z"
+    },
+    {
+      "id": 5,
+      "title": "Exercise Routine",
+      "description": "Complete the assigned exercise routine and submit workout log.",
+      "tribute": "$75",
+      "xp": 150,
+      "difficulty": "medium",
+      "status": "PENDING",
+      "deadline": "2024-01-22T18:00:00Z",
+      "createdAt": "2024-01-20T06:00:00Z",
+      "updatedAt": "2024-01-20T06:00:00Z"
+    },
+    {
+      "id": 6,
+      "title": "Luxury Purchase",
+      "description": "Purchase a luxury item from the wishlist and provide receipt.",
+      "tribute": "$500",
+      "xp": 1000,
+      "difficulty": "hard",
+      "status": "PENDING",
+      "deadline": "2024-01-30T23:59:59Z",
+      "createdAt": "2024-01-20T06:00:00Z",
+      "updatedAt": "2024-01-20T06:00:00Z"
+    },
+    {
+      "id": 7,
+      "title": "Meditation Practice",
+      "description": "Complete 20 minutes of guided meditation focused on submission.",
+      "tribute": "$30",
+      "xp": 75,
+      "difficulty": "easy",
+      "status": "PENDING",
+      "deadline": "2024-01-21T19:00:00Z",
+      "createdAt": "2024-01-20T06:00:00Z",
+      "updatedAt": "2024-01-20T06:00:00Z"
+    },
+    {
+      "id": 8,
+      "title": "Public Service",
+      "description": "Perform a public service task and document the experience.",
+      "tribute": "$150",
+      "xp": 300,
+      "difficulty": "medium",
+      "status": "PENDING",
+      "deadline": "2024-01-25T17:00:00Z",
+      "createdAt": "2024-01-20T06:00:00Z",
+      "updatedAt": "2024-01-20T06:00:00Z"
+    }
+  ],
+  "meta": {
+    "totalTasks": 8,
+    "activeTasks": 7,
+    "completedTasks": 1,
+    "lastUpdated": "2024-01-20T06:00:00Z",
+    "version": "1.0.0"
+  }
+}
