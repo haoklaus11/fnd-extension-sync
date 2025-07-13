@@ -69,6 +69,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             handleSyncTasks(request, sendResponse);
             break;
         
+        case 'getGitHubToken':
+            handleGetGitHubToken(request, sendResponse);
+            break;
+        
         default:
             sendResponse({ error: 'Unknown action' });
     }
@@ -79,12 +83,21 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 // Handle activation validation
 function handleActivationValidation(request, sendResponse) {
     try {
-        // Dummy validation (replace with actual server call or GitHub)
-        const valid = request.code === "GODDESS-KU00WKU";
+        // Enhanced validation with multiple codes
+        const validCodes = [
+            'GODDESS-KU00WKU',
+            'FINDOM2024',
+            'ELITE-SLAVE-001',
+            'SUBMIT-NOW',
+            'GODDESS-APPROVED',
+            'TRIBUTE-READY'
+        ];
+        
+        const valid = validCodes.includes(request.code.toUpperCase());
         
         chrome.storage.local.set({ activated: valid }, () => {
             if (valid) {
-                console.log("Extension activated successfully");
+                console.log("Extension activated successfully with code:", request.code);
                 // Initialize user profile on successful activation
                 initializeUserProfile();
             }
@@ -347,10 +360,10 @@ const GITHUB_CONFIG = {
     repo: 'fnd-extension-sync',
     baseUrl: 'https://api.github.com/repos/haoklaus11/fnd-extension-sync',
     dataFiles: {
-        tasks: 'data/tasks.json',
-        users: 'data/users.json',
-        tribute: 'data/tribute-history.json',
-        config: 'data/config.json'
+        tasks: 'findom-extension-sync/github/tasks.json',
+        users: 'findom-extension-sync/github/users.json',
+        tribute: 'findom-extension-sync/github/tribute-history.json',
+        config: 'findom-extension-sync/github/config.json'
     }
 };
 
@@ -458,7 +471,10 @@ function handleSetGitHubToken(request, sendResponse) {
         })
         .then(response => {
             if (response.ok) {
-                chrome.storage.local.set({ githubToken: token }, () => {
+                chrome.storage.local.set({ 
+                    githubToken: token,
+                    syncEnabled: true 
+                }, () => {
                     console.log('GitHub token configured successfully');
                     sendResponse({ success: true });
                 });
@@ -474,6 +490,17 @@ function handleSetGitHubToken(request, sendResponse) {
         console.error('Set GitHub token error:', error);
         sendResponse({ success: false, error: error.message });
     }
+}
+
+// Handle getting GitHub token status
+function handleGetGitHubToken(request, sendResponse) {
+    chrome.storage.local.get(['githubToken', 'syncEnabled'], (result) => {
+        sendResponse({
+            configured: !!result.githubToken,
+            enabled: result.syncEnabled || false,
+            token: result.githubToken ? result.githubToken.substring(0, 20) + '...' : null
+        });
+    });
 }
 
 // Handle pushing local changes to GitHub
